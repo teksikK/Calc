@@ -1,0 +1,11 @@
+# ninja log v6
+3	338	7904750791951229	build.ninja	65d40dcb7ee28e80
+29	415	7904748783947342	CMakeFiles/calc.dir/calculator.cpp.obj	1a06a85149a0d178
+25	439	7904748783911783	CMakeFiles/calc.dir/main.cpp.obj	24b5a8e438386af7
+35	12103	7904748783998187	CMakeFiles/calc.dir/catch_amalgamated.cpp.obj	c7eface5c714f43a
+32	1433	7904748783977755	CMakeFiles/calc.dir/test_calculator.cpp.obj	949d78e2a8c5898a
+3	315	7904750791951229	build.ninja	65d40dcb7ee28e80
+18	21358	7904750792840123	calc.exe	314bcef68ca861d3
+7	417	7904752601236964	CMakeFiles/calc.dir/calculator.cpp.obj	1a06a85149a0d178
+12	1467	7904752601294518	CMakeFiles/calc.dir/test_calculator.cpp.obj	949d78e2a8c5898a
+1467	22247	7904752615853292	calc.exe	314bcef68ca861d3
