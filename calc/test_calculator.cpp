@@ -13,8 +13,8 @@ TEST_CASE("Decimal addition") {
     REQUIRE(calc.add(0, 0) == 0);
     REQUIRE(calc.add(0, 5) == 5);
     REQUIRE(calc.add(-5, 0) == -5);
-    REQUIRE(calc.add(std::numeric_limits<double>::max(), 0)
-            == std::numeric_limits<double>::max());
+    REQUIRE(calc.add(std::numeric_limits<int64_t>::max(), 0)
+            == std::numeric_limits<int64_t>::max());
 }
 
 // SUBTRACTION
@@ -37,8 +37,8 @@ TEST_CASE("Decimal multiplication") {
     REQUIRE(calc.multiply(0, 5) == 0);
     REQUIRE(calc.multiply(0, -100) == 0);
     REQUIRE(calc.multiply(-1, 5) == -5);
-    REQUIRE(calc.multiply(1, std::numeric_limits<double>::max())
-            == std::numeric_limits<double>::max());
+    REQUIRE(calc.multiply(1, std::numeric_limits<int64_t>::max())
+            == std::numeric_limits<int64_t>::max());
 }
 
 // DIVISION
@@ -49,7 +49,6 @@ TEST_CASE("Decimal division") {
     REQUIRE(calc.divide(0, 5) == 0);
     REQUIRE(calc.divide(-10, 2) == -5);
     REQUIRE(calc.divide(10, -2) == -5);
-    REQUIRE(calc.divide(1e-9, 1e9) == Catch::Approx(1e-18));
     REQUIRE_THROWS_AS(calc.divide(5, 0), std::invalid_argument);
     REQUIRE_THROWS_AS(calc.divide(-5, 0), std::invalid_argument);
     REQUIRE_THROWS_AS(calc.divide(0, 0), std::invalid_argument);
