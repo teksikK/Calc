@@ -1,0 +1,6 @@
+set(__QT_DEPLOY_TARGET_calc_gui_FILE D:/zut/s5/wo/Calc/calc/cmake-build-debug/calc_gui.exe)
+set(__QT_DEPLOY_TARGET_calc_gui_TYPE EXECUTABLE)
+set(__QT_DEPLOY_TARGET_calc_gui_RUNTIME_DLLS C:/Qt/6.10.1/mingw_64/bin/Qt6Widgets.dll;C:/Qt/6.10.1/mingw_64/bin/Qt6Gui.dll;C:/Qt/6.10.1/mingw_64/bin/Qt6Core.dll)
+set(__QT_DEPLOY_TARGET_calc_tests_FILE D:/zut/s5/wo/Calc/calc/cmake-build-debug/calc_tests.exe)
+set(__QT_DEPLOY_TARGET_calc_tests_TYPE EXECUTABLE)
+set(__QT_DEPLOY_TARGET_calc_tests_RUNTIME_DLLS )

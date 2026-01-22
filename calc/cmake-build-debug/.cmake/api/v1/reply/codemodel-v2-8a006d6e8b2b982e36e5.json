@@ -1,0 +1,105 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "calc",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "calc_gui::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-calc_gui-Debug-fe903e89b24e15b84652.json",
+					"name" : "calc_gui",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "calc_gui_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-calc_gui_autogen-Debug-9bda4d64fabf0f57863c.json",
+					"name" : "calc_gui_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "calc_gui_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-calc_gui_autogen_timestamp_deps-Debug-5a93a85b79f918a0ddef.json",
+					"name" : "calc_gui_autogen_timestamp_deps",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "calc_tests::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-calc_tests-Debug-49fecdc982a806c29129.json",
+					"name" : "calc_tests",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "calc_tests_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-calc_tests_autogen-Debug-abd93d458948077b3081.json",
+					"name" : "calc_tests_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "calc_tests_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-calc_tests_autogen_timestamp_deps-Debug-fb570c1581f87b7f2ed7.json",
+					"name" : "calc_tests_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/zut/s5/wo/Calc/calc/cmake-build-debug",
+		"source" : "D:/zut/s5/wo/Calc/calc"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 8
+	}
+}

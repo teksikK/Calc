@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/calc.dir/calculator.cpp.obj.d"
   "CMakeFiles/calc.dir/catch_amalgamated.cpp.obj"
   "CMakeFiles/calc.dir/catch_amalgamated.cpp.obj.d"
+  "CMakeFiles/calc.dir/main.cpp.obj"
+  "CMakeFiles/calc.dir/main.cpp.obj.d"
   "CMakeFiles/calc.dir/test_calculator.cpp.obj"
   "CMakeFiles/calc.dir/test_calculator.cpp.obj.d"
   "calc.exe"

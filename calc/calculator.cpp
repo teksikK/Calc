@@ -3,46 +3,71 @@
 
 // ===== konstruktor =====
 Calculator::Calculator()
-    : value(0), base(NumberBase::DEC) {}
+    : raw(0), base(NumberBase::DEC), wordSize(WordSize::QWORD) {}
 
-// ===== stare operacje (teraz logiczne dla programisty) =====
-uint64_t Calculator::add(uint64_t a, uint64_t b) {
-    value = a + b;
-    return value;
+
+// ===== pomocnicze =====
+uint64_t Calculator::mask() const {
+    int bits = static_cast<int>(wordSize);
+    if (bits == 64) return ~0ULL;
+    return (1ULL << bits) - 1;
 }
 
-uint64_t Calculator::subtract(uint64_t a, uint64_t b) {
-    value = a - b;
-    return value;
-}
+int64_t Calculator::signedValue() const {
+    int bits = static_cast<int>(wordSize);
+    uint64_t m = mask();
+    uint64_t v = raw & m;
 
-uint64_t Calculator::multiply(uint64_t a, uint64_t b) {
-    value = a * b;
-    return value;
-}
-
-uint64_t Calculator::divide(uint64_t a, uint64_t b) {
-    if (b == 0) {
-        throw std::invalid_argument("Division by zero");
+    uint64_t signBit = 1ULL << (bits - 1);
+    if (v & signBit) {
+        // sign extend
+        return static_cast<int64_t>(v | ~m);
     }
-    value = a / b;
-    return value;
+    return static_cast<int64_t>(v);
 }
 
-// ===== ustawianie i pobieranie =====
-void Calculator::setValue(uint64_t v) {
-    value = v;
+
+// ===== operacje (ZAWIJANIE) =====
+int64_t Calculator::add(int64_t a, int64_t b) {
+    raw = (static_cast<uint64_t>(a) + static_cast<uint64_t>(b)) & mask();
+    return signedValue();
 }
 
+int64_t Calculator::subtract(int64_t a, int64_t b) {
+    raw = (static_cast<uint64_t>(a) - static_cast<uint64_t>(b)) & mask();
+    return signedValue();
+}
+
+int64_t Calculator::multiply(int64_t a, int64_t b) {
+    raw = (static_cast<uint64_t>(a) * static_cast<uint64_t>(b)) & mask();
+    return signedValue();
+}
+
+int64_t Calculator::divide(int64_t a, int64_t b) {
+    if (b == 0)
+        throw std::invalid_argument("Division by zero");
+
+    raw = static_cast<uint64_t>(a / b) & mask();
+    return signedValue();
+}
+
+
+// ===== konfiguracja =====
 void Calculator::setBase(NumberBase b) {
     base = b;
 }
 
-uint64_t Calculator::getValue() const {
-    return value;
+void Calculator::setWordSize(WordSize w) {
+    wordSize = w;
+    raw &= mask();
 }
 
-// ===== wyświetlanie zależne od systemu =====
+int64_t Calculator::getValue() const {
+    return signedValue();
+}
+
+
+// ===== wyświetlanie =====
 std::string Calculator::display() const {
     switch (base) {
         case NumberBase::DEC: return toDec();
@@ -53,47 +78,43 @@ std::string Calculator::display() const {
     return "";
 }
 
-// ===== konwersje =====
 std::string Calculator::toDec() const {
-    return std::to_string(value);
+    return std::to_string(signedValue());
 }
 
 std::string Calculator::toBin() const {
-    if (value == 0) return "0";
+    uint64_t v = raw & mask();
+    if (v == 0) return "0";
 
-    uint64_t temp = value;
-    std::string result;
-
-    while (temp > 0) {
-        result = char('0' + (temp % 2)) + result;
-        temp /= 2;
+    std::string r;
+    while (v) {
+        r = char('0' + (v & 1)) + r;
+        v >>= 1;
     }
-    return result;
+    return r;
 }
 
 std::string Calculator::toOct() const {
-    if (value == 0) return "0";
+    uint64_t v = raw & mask();
+    if (v == 0) return "0";
 
-    uint64_t temp = value;
-    std::string result;
-
-    while (temp > 0) {
-        result = char('0' + (temp % 8)) + result;
-        temp /= 8;
+    std::string r;
+    while (v) {
+        r = char('0' + (v & 7)) + r;
+        v >>= 3;
     }
-    return result;
+    return r;
 }
 
 std::string Calculator::toHex() const {
-    if (value == 0) return "0";
+    uint64_t v = raw & mask();
+    if (v == 0) return "0";
 
-    uint64_t temp = value;
-    std::string result;
-    const char* digits = "0123456789ABCDEF";
-
-    while (temp > 0) {
-        result = digits[temp % 16] + result;
-        temp /= 16;
+    std::string r;
+    const char* d = "0123456789ABCDEF";
+    while (v) {
+        r = d[v & 0xF] + r;
+        v >>= 4;
     }
-    return result;
+    return r;
 }

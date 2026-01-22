@@ -116,24 +116,162 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named calc
+# Target rules for targets named calc_gui
 
 # Build rule for target.
-calc: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 calc
-.PHONY : calc
+calc_gui: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 calc_gui
+.PHONY : calc_gui
 
 # fast build rule for target.
-calc/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc.dir\build.make CMakeFiles/calc.dir/build
-.PHONY : calc/fast
+calc_gui/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc_gui.dir\build.make CMakeFiles/calc_gui.dir/build
+.PHONY : calc_gui/fast
+
+#=============================================================================
+# Target rules for targets named calc_tests
+
+# Build rule for target.
+calc_tests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 calc_tests
+.PHONY : calc_tests
+
+# fast build rule for target.
+calc_tests/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc_tests.dir\build.make CMakeFiles/calc_tests.dir/build
+.PHONY : calc_tests/fast
+
+#=============================================================================
+# Target rules for targets named calc_gui_autogen_timestamp_deps
+
+# Build rule for target.
+calc_gui_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 calc_gui_autogen_timestamp_deps
+.PHONY : calc_gui_autogen_timestamp_deps
+
+# fast build rule for target.
+calc_gui_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc_gui_autogen_timestamp_deps.dir\build.make CMakeFiles/calc_gui_autogen_timestamp_deps.dir/build
+.PHONY : calc_gui_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named calc_gui_autogen
+
+# Build rule for target.
+calc_gui_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 calc_gui_autogen
+.PHONY : calc_gui_autogen
+
+# fast build rule for target.
+calc_gui_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc_gui_autogen.dir\build.make CMakeFiles/calc_gui_autogen.dir/build
+.PHONY : calc_gui_autogen/fast
+
+#=============================================================================
+# Target rules for targets named calc_tests_autogen_timestamp_deps
+
+# Build rule for target.
+calc_tests_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 calc_tests_autogen_timestamp_deps
+.PHONY : calc_tests_autogen_timestamp_deps
+
+# fast build rule for target.
+calc_tests_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc_tests_autogen_timestamp_deps.dir\build.make CMakeFiles/calc_tests_autogen_timestamp_deps.dir/build
+.PHONY : calc_tests_autogen_timestamp_deps/fast
+
+#=============================================================================
+# Target rules for targets named calc_tests_autogen
+
+# Build rule for target.
+calc_tests_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 calc_tests_autogen
+.PHONY : calc_tests_autogen
+
+# fast build rule for target.
+calc_tests_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc_tests_autogen.dir\build.make CMakeFiles/calc_tests_autogen.dir/build
+.PHONY : calc_tests_autogen/fast
+
+MainWindow.obj: MainWindow.cpp.obj
+.PHONY : MainWindow.obj
+
+# target to build an object file
+MainWindow.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc_gui.dir\build.make CMakeFiles/calc_gui.dir/MainWindow.cpp.obj
+.PHONY : MainWindow.cpp.obj
+
+MainWindow.i: MainWindow.cpp.i
+.PHONY : MainWindow.i
+
+# target to preprocess a source file
+MainWindow.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc_gui.dir\build.make CMakeFiles/calc_gui.dir/MainWindow.cpp.i
+.PHONY : MainWindow.cpp.i
+
+MainWindow.s: MainWindow.cpp.s
+.PHONY : MainWindow.s
+
+# target to generate assembly for a file
+MainWindow.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc_gui.dir\build.make CMakeFiles/calc_gui.dir/MainWindow.cpp.s
+.PHONY : MainWindow.cpp.s
+
+calc_gui_autogen/mocs_compilation.obj: calc_gui_autogen/mocs_compilation.cpp.obj
+.PHONY : calc_gui_autogen/mocs_compilation.obj
+
+# target to build an object file
+calc_gui_autogen/mocs_compilation.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc_gui.dir\build.make CMakeFiles/calc_gui.dir/calc_gui_autogen/mocs_compilation.cpp.obj
+.PHONY : calc_gui_autogen/mocs_compilation.cpp.obj
+
+calc_gui_autogen/mocs_compilation.i: calc_gui_autogen/mocs_compilation.cpp.i
+.PHONY : calc_gui_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+calc_gui_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc_gui.dir\build.make CMakeFiles/calc_gui.dir/calc_gui_autogen/mocs_compilation.cpp.i
+.PHONY : calc_gui_autogen/mocs_compilation.cpp.i
+
+calc_gui_autogen/mocs_compilation.s: calc_gui_autogen/mocs_compilation.cpp.s
+.PHONY : calc_gui_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+calc_gui_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc_gui.dir\build.make CMakeFiles/calc_gui.dir/calc_gui_autogen/mocs_compilation.cpp.s
+.PHONY : calc_gui_autogen/mocs_compilation.cpp.s
+
+calc_tests_autogen/mocs_compilation.obj: calc_tests_autogen/mocs_compilation.cpp.obj
+.PHONY : calc_tests_autogen/mocs_compilation.obj
+
+# target to build an object file
+calc_tests_autogen/mocs_compilation.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc_tests.dir\build.make CMakeFiles/calc_tests.dir/calc_tests_autogen/mocs_compilation.cpp.obj
+.PHONY : calc_tests_autogen/mocs_compilation.cpp.obj
+
+calc_tests_autogen/mocs_compilation.i: calc_tests_autogen/mocs_compilation.cpp.i
+.PHONY : calc_tests_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+calc_tests_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc_tests.dir\build.make CMakeFiles/calc_tests.dir/calc_tests_autogen/mocs_compilation.cpp.i
+.PHONY : calc_tests_autogen/mocs_compilation.cpp.i
+
+calc_tests_autogen/mocs_compilation.s: calc_tests_autogen/mocs_compilation.cpp.s
+.PHONY : calc_tests_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+calc_tests_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc_tests.dir\build.make CMakeFiles/calc_tests.dir/calc_tests_autogen/mocs_compilation.cpp.s
+.PHONY : calc_tests_autogen/mocs_compilation.cpp.s
 
 calculator.obj: calculator.cpp.obj
 .PHONY : calculator.obj
 
 # target to build an object file
 calculator.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc.dir\build.make CMakeFiles/calc.dir/calculator.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc_gui.dir\build.make CMakeFiles/calc_gui.dir/calculator.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc_tests.dir\build.make CMakeFiles/calc_tests.dir/calculator.cpp.obj
 .PHONY : calculator.cpp.obj
 
 calculator.i: calculator.cpp.i
@@ -141,7 +279,8 @@ calculator.i: calculator.cpp.i
 
 # target to preprocess a source file
 calculator.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc.dir\build.make CMakeFiles/calc.dir/calculator.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc_gui.dir\build.make CMakeFiles/calc_gui.dir/calculator.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc_tests.dir\build.make CMakeFiles/calc_tests.dir/calculator.cpp.i
 .PHONY : calculator.cpp.i
 
 calculator.s: calculator.cpp.s
@@ -149,7 +288,8 @@ calculator.s: calculator.cpp.s
 
 # target to generate assembly for a file
 calculator.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc.dir\build.make CMakeFiles/calc.dir/calculator.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc_gui.dir\build.make CMakeFiles/calc_gui.dir/calculator.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc_tests.dir\build.make CMakeFiles/calc_tests.dir/calculator.cpp.s
 .PHONY : calculator.cpp.s
 
 catch_amalgamated.obj: catch_amalgamated.cpp.obj
@@ -157,7 +297,7 @@ catch_amalgamated.obj: catch_amalgamated.cpp.obj
 
 # target to build an object file
 catch_amalgamated.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc.dir\build.make CMakeFiles/calc.dir/catch_amalgamated.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc_tests.dir\build.make CMakeFiles/calc_tests.dir/catch_amalgamated.cpp.obj
 .PHONY : catch_amalgamated.cpp.obj
 
 catch_amalgamated.i: catch_amalgamated.cpp.i
@@ -165,7 +305,7 @@ catch_amalgamated.i: catch_amalgamated.cpp.i
 
 # target to preprocess a source file
 catch_amalgamated.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc.dir\build.make CMakeFiles/calc.dir/catch_amalgamated.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc_tests.dir\build.make CMakeFiles/calc_tests.dir/catch_amalgamated.cpp.i
 .PHONY : catch_amalgamated.cpp.i
 
 catch_amalgamated.s: catch_amalgamated.cpp.s
@@ -173,15 +313,39 @@ catch_amalgamated.s: catch_amalgamated.cpp.s
 
 # target to generate assembly for a file
 catch_amalgamated.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc.dir\build.make CMakeFiles/calc.dir/catch_amalgamated.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc_tests.dir\build.make CMakeFiles/calc_tests.dir/catch_amalgamated.cpp.s
 .PHONY : catch_amalgamated.cpp.s
+
+main.obj: main.cpp.obj
+.PHONY : main.obj
+
+# target to build an object file
+main.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc_gui.dir\build.make CMakeFiles/calc_gui.dir/main.cpp.obj
+.PHONY : main.cpp.obj
+
+main.i: main.cpp.i
+.PHONY : main.i
+
+# target to preprocess a source file
+main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc_gui.dir\build.make CMakeFiles/calc_gui.dir/main.cpp.i
+.PHONY : main.cpp.i
+
+main.s: main.cpp.s
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc_gui.dir\build.make CMakeFiles/calc_gui.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 test_calculator.obj: test_calculator.cpp.obj
 .PHONY : test_calculator.obj
 
 # target to build an object file
 test_calculator.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc.dir\build.make CMakeFiles/calc.dir/test_calculator.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc_tests.dir\build.make CMakeFiles/calc_tests.dir/test_calculator.cpp.obj
 .PHONY : test_calculator.cpp.obj
 
 test_calculator.i: test_calculator.cpp.i
@@ -189,7 +353,7 @@ test_calculator.i: test_calculator.cpp.i
 
 # target to preprocess a source file
 test_calculator.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc.dir\build.make CMakeFiles/calc.dir/test_calculator.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc_tests.dir\build.make CMakeFiles/calc_tests.dir/test_calculator.cpp.i
 .PHONY : test_calculator.cpp.i
 
 test_calculator.s: test_calculator.cpp.s
@@ -197,7 +361,7 @@ test_calculator.s: test_calculator.cpp.s
 
 # target to generate assembly for a file
 test_calculator.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc.dir\build.make CMakeFiles/calc.dir/test_calculator.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc_tests.dir\build.make CMakeFiles/calc_tests.dir/test_calculator.cpp.s
 .PHONY : test_calculator.cpp.s
 
 # Help Target
@@ -208,13 +372,30 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... calc
+	@echo ... calc_gui_autogen
+	@echo ... calc_gui_autogen_timestamp_deps
+	@echo ... calc_tests_autogen
+	@echo ... calc_tests_autogen_timestamp_deps
+	@echo ... calc_gui
+	@echo ... calc_tests
+	@echo ... MainWindow.obj
+	@echo ... MainWindow.i
+	@echo ... MainWindow.s
+	@echo ... calc_gui_autogen/mocs_compilation.obj
+	@echo ... calc_gui_autogen/mocs_compilation.i
+	@echo ... calc_gui_autogen/mocs_compilation.s
+	@echo ... calc_tests_autogen/mocs_compilation.obj
+	@echo ... calc_tests_autogen/mocs_compilation.i
+	@echo ... calc_tests_autogen/mocs_compilation.s
 	@echo ... calculator.obj
 	@echo ... calculator.i
 	@echo ... calculator.s
 	@echo ... catch_amalgamated.obj
 	@echo ... catch_amalgamated.i
 	@echo ... catch_amalgamated.s
+	@echo ... main.obj
+	@echo ... main.i
+	@echo ... main.s
 	@echo ... test_calculator.obj
 	@echo ... test_calculator.i
 	@echo ... test_calculator.s

@@ -1,6 +1,4 @@
-#ifndef CALCULATOR_H
-#define CALCULATOR_H
-
+#pragma once
 #include <cstdint>
 #include <string>
 
@@ -11,33 +9,39 @@ enum class NumberBase {
     HEX
 };
 
-class Calculator {
-private:
-    uint64_t value;        // aktualna wartość kalkulatora
-    NumberBase base;       // aktualny system liczbowy
+enum class WordSize {
+    BYTE  = 8,
+    WORD  = 16,
+    DWORD = 32,
+    QWORD = 64
+};
 
+class Calculator {
 public:
     Calculator();
 
-    // ===== stare operacje (zostają, ale na uint64_t) =====
-    uint64_t add(uint64_t a, uint64_t b);
-    uint64_t subtract(uint64_t a, uint64_t b);
-    uint64_t multiply(uint64_t a, uint64_t b);
-    uint64_t divide(uint64_t a, uint64_t b);
+    // podstawowe operacje
+    int64_t add(int64_t a, int64_t b);
+    int64_t subtract(int64_t a, int64_t b);
+    int64_t multiply(int64_t a, int64_t b);
+    int64_t divide(int64_t a, int64_t b);
 
-    // ===== obsługa wartości i systemu =====
-    void setValue(uint64_t v);
     void setBase(NumberBase b);
-    uint64_t getValue() const;
+    void setWordSize(WordSize w);
 
-    // ===== wyświetlanie =====
+    int64_t getValue() const;
     std::string display() const;
 
 private:
+    uint64_t raw;          // SUROWE BITY (rejestr)
+    NumberBase base;
+    WordSize wordSize;
+
+    uint64_t mask() const;
+    int64_t  signedValue() const;
+
     std::string toDec() const;
     std::string toBin() const;
     std::string toOct() const;
     std::string toHex() const;
 };
-
-#endif // CALCULATOR_H
