@@ -295,6 +295,7 @@ calc_gui_autogen/timestamp: C:/Program\ Files/JetBrains/CLion\ 2025.3.1.1/bin/cm
   C:/Program\ Files/JetBrains/CLion\ 2025.3.1.1/bin/mingw/x86_64-w64-mingw32/include/vadefs.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3.1.1/bin/mingw/x86_64-w64-mingw32/include/wchar.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3.1.1/bin/mingw/x86_64-w64-mingw32/include/wctype.h \
+  C:/Qt/6.10.1/mingw_64/include/QtCore/QMap \
   C:/Qt/6.10.1/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/q20functional.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/q20iterator.h \
@@ -1435,6 +1436,8 @@ C:/Program\ Files/JetBrains/CLion\ 2025.3.1.1/bin/mingw/x86_64-w64-mingw32/inclu
 C:/Qt/6.10.1/mingw_64/lib/cmake/Qt6Gui/Qt6QJpegPluginConfig.cmake:
 
 C:/Program\ Files/JetBrains/CLion\ 2025.3.1.1/bin/mingw/x86_64-w64-mingw32/include/wchar.h:
+
+C:/Qt/6.10.1/mingw_64/include/QtCore/QMap:
 
 C:/Qt/6.10.1/mingw_64/include/QtCore/q20functional.h:
 

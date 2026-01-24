@@ -424,6 +424,9 @@ CMakeFiles/calc_gui.dir/MainWindow.cpp.obj: \
  C:/Qt/6.10.1/mingw_64/include/QtWidgets/qsizepolicy.h \
  C:/Qt/6.10.1/mingw_64/include/QtGui/qcursor.h \
  C:/Qt/6.10.1/mingw_64/include/QtGui/qbitmap.h \
+ C:/Qt/6.10.1/mingw_64/include/QtCore/QMap \
+ C:/Qt/6.10.1/mingw_64/include/QtCore/qmap.h \
+ D:\zut\s5\wo\Calc\calc\calculator.h \
  C:/Qt/6.10.1/mingw_64/include/QtWidgets/QLineEdit \
  C:/Qt/6.10.1/mingw_64/include/QtWidgets/qlineedit.h \
  C:/Qt/6.10.1/mingw_64/include/QtWidgets/qframe.h \
@@ -453,4 +456,5 @@ CMakeFiles/calc_gui.dir/MainWindow.cpp.obj: \
  C:/Qt/6.10.1/mingw_64/include/QtWidgets/qboxlayout.h \
  C:/Qt/6.10.1/mingw_64/include/QtWidgets/QHBoxLayout \
  C:/Qt/6.10.1/mingw_64/include/QtWidgets/QGroupBox \
- C:/Qt/6.10.1/mingw_64/include/QtWidgets/qgroupbox.h
+ C:/Qt/6.10.1/mingw_64/include/QtWidgets/qgroupbox.h \
+ C:/Program\ Files/JetBrains/CLion\ 2025.3.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bitset

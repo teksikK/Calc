@@ -254,6 +254,7 @@ D:/zut/s5/wo/Calc/calc/cmake-build-debug/calc_gui_autogen/EWIEGA46WW/moc_MainWin
   C:/Program\ Files/JetBrains/CLion\ 2025.3.1.1/bin/mingw/x86_64-w64-mingw32/include/vadefs.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3.1.1/bin/mingw/x86_64-w64-mingw32/include/wchar.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3.1.1/bin/mingw/x86_64-w64-mingw32/include/wctype.h \
+  C:/Qt/6.10.1/mingw_64/include/QtCore/QMap \
   C:/Qt/6.10.1/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/q20functional.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/q20iterator.h \
@@ -412,4 +413,5 @@ D:/zut/s5/wo/Calc/calc/cmake-build-debug/calc_gui_autogen/EWIEGA46WW/moc_MainWin
   C:/Qt/6.10.1/mingw_64/include/QtWidgets/qtwidgets-config.h \
   C:/Qt/6.10.1/mingw_64/include/QtWidgets/qtwidgetsexports.h \
   C:/Qt/6.10.1/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
-  C:/Qt/6.10.1/mingw_64/include/QtWidgets/qwidget.h
+  C:/Qt/6.10.1/mingw_64/include/QtWidgets/qwidget.h \
+  D:/zut/s5/wo/Calc/calc/calculator.h

@@ -118,6 +118,7 @@ CMakeFiles/calc_gui.dir/MainWindow.cpp.obj: D:/zut/s5/wo/Calc/calc/MainWindow.cp
   C:/Program\ Files/JetBrains/CLion\ 2025.3.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/uses_allocator_args.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/utility.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/vector.tcc \
+  C:/Program\ Files/JetBrains/CLion\ 2025.3.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bitset \
   C:/Program\ Files/JetBrains/CLion\ 2025.3.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cassert \
   C:/Program\ Files/JetBrains/CLion\ 2025.3.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cctype \
   C:/Program\ Files/JetBrains/CLion\ 2025.3.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cerrno \
@@ -266,6 +267,7 @@ CMakeFiles/calc_gui.dir/MainWindow.cpp.obj: D:/zut/s5/wo/Calc/calc/MainWindow.cp
   C:/Program\ Files/JetBrains/CLion\ 2025.3.1.1/bin/mingw/x86_64-w64-mingw32/include/vadefs.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3.1.1/bin/mingw/x86_64-w64-mingw32/include/wchar.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3.1.1/bin/mingw/x86_64-w64-mingw32/include/wctype.h \
+  C:/Qt/6.10.1/mingw_64/include/QtCore/QMap \
   C:/Qt/6.10.1/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/q20functional.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/q20iterator.h \
@@ -452,7 +454,8 @@ CMakeFiles/calc_gui.dir/MainWindow.cpp.obj: D:/zut/s5/wo/Calc/calc/MainWindow.cp
   C:/Qt/6.10.1/mingw_64/include/QtWidgets/qtwidgetsexports.h \
   C:/Qt/6.10.1/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
   C:/Qt/6.10.1/mingw_64/include/QtWidgets/qwidget.h \
-  D:/zut/s5/wo/Calc/calc/MainWindow.h
+  D:/zut/s5/wo/Calc/calc/MainWindow.h \
+  D:/zut/s5/wo/Calc/calc/calculator.h
 
 CMakeFiles/calc_gui.dir/calc_gui_autogen/mocs_compilation.cpp.obj: calc_gui_autogen/mocs_compilation.cpp \
   C:/Program\ Files/JetBrains/CLion\ 2025.3.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/algorithm \
@@ -719,6 +722,7 @@ CMakeFiles/calc_gui.dir/calc_gui_autogen/mocs_compilation.cpp.obj: calc_gui_auto
   C:/Program\ Files/JetBrains/CLion\ 2025.3.1.1/bin/mingw/x86_64-w64-mingw32/include/vadefs.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3.1.1/bin/mingw/x86_64-w64-mingw32/include/wchar.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3.1.1/bin/mingw/x86_64-w64-mingw32/include/wctype.h \
+  C:/Qt/6.10.1/mingw_64/include/QtCore/QMap \
   C:/Qt/6.10.1/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/q20algorithm.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/q20functional.h \
@@ -882,6 +886,7 @@ CMakeFiles/calc_gui.dir/calc_gui_autogen/mocs_compilation.cpp.obj: calc_gui_auto
   C:/Qt/6.10.1/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
   C:/Qt/6.10.1/mingw_64/include/QtWidgets/qwidget.h \
   D:/zut/s5/wo/Calc/calc/MainWindow.h \
+  D:/zut/s5/wo/Calc/calc/calculator.h \
   calc_gui_autogen/EWIEGA46WW/moc_MainWindow.cpp
 
 CMakeFiles/calc_gui.dir/calculator.cpp.obj: D:/zut/s5/wo/Calc/calc/calculator.cpp \
@@ -1266,6 +1271,7 @@ CMakeFiles/calc_gui.dir/main.cpp.obj: D:/zut/s5/wo/Calc/calc/main.cpp \
   C:/Program\ Files/JetBrains/CLion\ 2025.3.1.1/bin/mingw/x86_64-w64-mingw32/include/vadefs.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3.1.1/bin/mingw/x86_64-w64-mingw32/include/wchar.h \
   C:/Program\ Files/JetBrains/CLion\ 2025.3.1.1/bin/mingw/x86_64-w64-mingw32/include/wctype.h \
+  C:/Qt/6.10.1/mingw_64/include/QtCore/QMap \
   C:/Qt/6.10.1/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/q20functional.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/q20iterator.h \
@@ -1439,7 +1445,8 @@ CMakeFiles/calc_gui.dir/main.cpp.obj: D:/zut/s5/wo/Calc/calc/main.cpp \
   C:/Qt/6.10.1/mingw_64/include/QtWidgets/qtwidgetsexports.h \
   C:/Qt/6.10.1/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
   C:/Qt/6.10.1/mingw_64/include/QtWidgets/qwidget.h \
-  D:/zut/s5/wo/Calc/calc/MainWindow.h
+  D:/zut/s5/wo/Calc/calc/MainWindow.h \
+  D:/zut/s5/wo/Calc/calc/calculator.h
 
 
 C:/Program\ Files/JetBrains/CLion\ 2025.3.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ranges_algobase.h:
@@ -1834,6 +1841,8 @@ C:/Program\ Files/JetBrains/CLion\ 2025.3.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw
 
 C:/Program\ Files/JetBrains/CLion\ 2025.3.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/vector.tcc:
 
+C:/Program\ Files/JetBrains/CLion\ 2025.3.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bitset:
+
 C:/Program\ Files/JetBrains/CLion\ 2025.3.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cassert:
 
 C:/Program\ Files/JetBrains/CLion\ 2025.3.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cctype:
@@ -2135,6 +2144,8 @@ C:/Program\ Files/JetBrains/CLion\ 2025.3.1.1/bin/mingw/x86_64-w64-mingw32/inclu
 C:/Program\ Files/JetBrains/CLion\ 2025.3.1.1/bin/mingw/x86_64-w64-mingw32/include/time.h:
 
 C:/Program\ Files/JetBrains/CLion\ 2025.3.1.1/bin/mingw/x86_64-w64-mingw32/include/wchar.h:
+
+C:/Qt/6.10.1/mingw_64/include/QtCore/QMap:
 
 C:/Qt/6.10.1/mingw_64/include/QtCore/q17memory.h:
 

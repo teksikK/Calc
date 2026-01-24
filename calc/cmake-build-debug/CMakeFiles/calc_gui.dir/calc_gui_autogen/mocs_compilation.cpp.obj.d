@@ -425,6 +425,9 @@ CMakeFiles/calc_gui.dir/calc_gui_autogen/mocs_compilation.cpp.obj: \
  C:/Qt/6.10.1/mingw_64/include/QtWidgets/qsizepolicy.h \
  C:/Qt/6.10.1/mingw_64/include/QtGui/qcursor.h \
  C:/Qt/6.10.1/mingw_64/include/QtGui/qbitmap.h \
+ C:/Qt/6.10.1/mingw_64/include/QtCore/QMap \
+ C:/Qt/6.10.1/mingw_64/include/QtCore/qmap.h \
+ D:/zut/s5/wo/Calc/calc/calculator.h \
  C:/Qt/6.10.1/mingw_64/include/QtCore/qtmochelpers.h \
  C:/Qt/6.10.1/mingw_64/include/QtCore/qtmocconstants.h \
  C:/Qt/6.10.1/mingw_64/include/QtCore/q20algorithm.h

@@ -436,4 +436,7 @@ CMakeFiles/calc_gui.dir/main.cpp.obj: D:\zut\s5\wo\Calc\calc\main.cpp \
  C:/Qt/6.10.1/mingw_64/include/QtGui/qfontmetrics.h \
  C:/Qt/6.10.1/mingw_64/include/QtGui/qfontinfo.h \
  C:/Qt/6.10.1/mingw_64/include/QtGui/qfontvariableaxis.h \
- C:/Qt/6.10.1/mingw_64/include/QtWidgets/qsizepolicy.h
+ C:/Qt/6.10.1/mingw_64/include/QtWidgets/qsizepolicy.h \
+ C:/Qt/6.10.1/mingw_64/include/QtCore/QMap \
+ C:/Qt/6.10.1/mingw_64/include/QtCore/qmap.h \
+ D:\zut\s5\wo\Calc\calc\calculator.h
