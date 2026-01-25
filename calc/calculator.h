@@ -20,7 +20,6 @@ class Calculator {
 public:
     Calculator();
 
-    // podstawowe operacje
     int64_t add(int64_t a, int64_t b);
     int64_t subtract(int64_t a, int64_t b);
     int64_t multiply(int64_t a, int64_t b);
@@ -32,8 +31,12 @@ public:
     int64_t getValue() const;
     std::string display() const;
 
+    void setRaw(uint64_t v);
+    void setValue(int64_t v);
+    uint64_t getRaw() const;
+
 private:
-    uint64_t raw;          // SUROWE BITY (rejestr)
+    uint64_t raw;
     NumberBase base;
     WordSize wordSize;
 

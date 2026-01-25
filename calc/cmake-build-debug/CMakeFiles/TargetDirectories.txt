@@ -1,8 +1,0 @@
-D:/zut/s5/wo/Calc/calc/cmake-build-debug/CMakeFiles/calc_gui.dir
-D:/zut/s5/wo/Calc/calc/cmake-build-debug/CMakeFiles/calc_tests.dir
-D:/zut/s5/wo/Calc/calc/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/zut/s5/wo/Calc/calc/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-D:/zut/s5/wo/Calc/calc/cmake-build-debug/CMakeFiles/calc_gui_autogen_timestamp_deps.dir
-D:/zut/s5/wo/Calc/calc/cmake-build-debug/CMakeFiles/calc_gui_autogen.dir
-D:/zut/s5/wo/Calc/calc/cmake-build-debug/CMakeFiles/calc_tests_autogen_timestamp_deps.dir
-D:/zut/s5/wo/Calc/calc/cmake-build-debug/CMakeFiles/calc_tests_autogen.dir

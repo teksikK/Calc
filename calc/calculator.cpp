@@ -1,12 +1,12 @@
 #include "calculator.h"
 #include <stdexcept>
 
-// ===== konstruktor =====
+// constructor
 Calculator::Calculator()
     : raw(0), base(NumberBase::DEC), wordSize(WordSize::QWORD) {}
 
 
-// ===== pomocnicze =====
+// helpers
 uint64_t Calculator::mask() const {
     int bits = static_cast<int>(wordSize);
     if (bits == 64) return ~0ULL;
@@ -20,14 +20,24 @@ int64_t Calculator::signedValue() const {
 
     uint64_t signBit = 1ULL << (bits - 1);
     if (v & signBit) {
-        // sign extend
         return static_cast<int64_t>(v | ~m);
     }
     return static_cast<int64_t>(v);
 }
+void Calculator::setRaw(uint64_t v) {
+    raw = v & mask();
+}
+
+void Calculator::setValue(int64_t v) {
+    raw = static_cast<uint64_t>(v) & mask();
+}
+
+uint64_t Calculator::getRaw() const {
+    return raw & mask();
+}
 
 
-// ===== operacje (ZAWIJANIE) =====
+// operations
 int64_t Calculator::add(int64_t a, int64_t b) {
     raw = (static_cast<uint64_t>(a) + static_cast<uint64_t>(b)) & mask();
     return signedValue();
@@ -51,8 +61,6 @@ int64_t Calculator::divide(int64_t a, int64_t b) {
     return signedValue();
 }
 
-
-// ===== konfiguracja =====
 void Calculator::setBase(NumberBase b) {
     base = b;
 }
@@ -67,7 +75,7 @@ int64_t Calculator::getValue() const {
 }
 
 
-// ===== wyświetlanie =====
+// display
 std::string Calculator::display() const {
     switch (base) {
         case NumberBase::DEC: return toDec();

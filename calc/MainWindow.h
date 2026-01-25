@@ -22,30 +22,36 @@ public slots:
     void onWordSizeChanged();
 
 private:
-    // ===== UI =====
+    // ui
     QLineEdit* display;
     QLabel* bitView;
 
     QRadioButton *rbHex, *rbDec, *rbOct, *rbBin;
     QRadioButton *rbQword, *rbDword, *rbWord, *rbByte;
 
-    // ===== Calculator =====
+    // calculator
     Calculator calc;
-
+    int64_t memory = 0;
+    bool hasMemory = false;
+    bool error = false;
+    QString errorText = "Error";
+    void setError(const QString& msg);
+    bool isUnaryAllowed(const QString& t) const;
     enum class Op {
         None,
         Add, Sub, Mul, Div, Mod,
         And, Or, Xor,
-        Lsh, Rsh
+        Lsh, Rsh,
+        Pow
     };
-
+    int wordBits() const;
     Op pendingOp = Op::None;
     bool waitingForValue = true;
 
-    // ===== digit buttons =====
+
     QMap<QString, QPushButton*> digitButtons;
 
-    // ===== helpers =====
+    // helpers
     int64_t parseDisplay() const;
     void applyOperation(int64_t value);
     void updateBitView();

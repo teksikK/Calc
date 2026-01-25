@@ -4,6 +4,103 @@
 #include <limits>
 #include <stdexcept>
 
+TEST_CASE("Base formatting for positive numbers") {
+    Calculator calc;
+    calc.setWordSize(WordSize::QWORD);
+
+    calc.setBase(NumberBase::DEC);
+    calc.add(0, 26);
+    REQUIRE(calc.display() == "26");
+
+    calc.setBase(NumberBase::HEX);
+    REQUIRE(calc.display() == "1A");
+
+    calc.setBase(NumberBase::OCT);
+    REQUIRE(calc.display() == "32");
+
+    calc.setBase(NumberBase::BIN);
+    REQUIRE(calc.display() == "11010");
+}
+
+TEST_CASE("Changing word size masks stored value") {
+    Calculator calc;
+
+    // Put a value with bits above 8 set
+    calc.setWordSize(WordSize::QWORD);
+    calc.add(0, 0x1FF); // 511 = 0b1_11111111
+
+    calc.setWordSize(WordSize::BYTE); // should keep only 0xFF
+    REQUIRE(calc.getValue() == -1);   // 0xFF as signed int8 = -1
+
+    calc.setBase(NumberBase::HEX);
+    REQUIRE(calc.display() == "FF");
+}
+
+TEST_CASE("NOT respects word size") {
+    Calculator calc;
+    calc.setWordSize(WordSize::BYTE);
+    calc.setBase(NumberBase::BIN);
+
+    calc.setRaw(0b11001100);
+    REQUIRE(calc.display() == "11001100");
+
+    // NOT => 00110011
+    calc.setRaw((~calc.getRaw()) & 0xFF);
+    REQUIRE(calc.display() == "110011"); // NOTE: your toBin() trims leading zeros
+    // Better check raw bits:
+    REQUIRE((calc.getRaw() & 0xFF) == 0b00110011);
+}
+
+static uint64_t maskFor(int bits) {
+    if (bits == 64) return ~0ULL;
+    return (1ULL << bits) - 1ULL;
+}
+
+static uint64_t rotlN(uint64_t x, int r, int bits) {
+    r %= bits;
+    uint64_t m = maskFor(bits);
+    x &= m;
+    if (bits == 64) return (x << r) | (x >> (64 - r));
+    return ((x << r) | (x >> (bits - r))) & m;
+}
+
+static uint64_t rotrN(uint64_t x, int r, int bits) {
+    r %= bits;
+    uint64_t m = maskFor(bits);
+    x &= m;
+    if (bits == 64) return (x >> r) | (x << (64 - r));
+    return ((x >> r) | (x << (bits - r))) & m;
+}
+
+TEST_CASE("Rotate works in BYTE") {
+    Calculator calc;
+    calc.setWordSize(WordSize::BYTE);
+
+    // 00000001 RoR 1 => 10000000
+    calc.setRaw(0x01);
+    calc.setRaw(rotrN(calc.getRaw(), 1, 8));
+    REQUIRE((calc.getRaw() & 0xFF) == 0x80);
+
+    // 10000000 RoL 1 => 00000001
+    calc.setRaw(0x80);
+    calc.setRaw(rotlN(calc.getRaw(), 1, 8));
+    REQUIRE((calc.getRaw() & 0xFF) == 0x01);
+}
+
+TEST_CASE("Logical shifts respect word size") {
+    Calculator calc;
+    calc.setWordSize(WordSize::BYTE);
+
+    // 0b10000000 >> 1 => 0b01000000 (logical)
+    calc.setRaw(0b10000000);
+    calc.setRaw((calc.getRaw() >> 1) & 0xFF);
+    REQUIRE((calc.getRaw() & 0xFF) == 0b01000000);
+
+    // 0b00000001 << 1 => 0b00000010
+    calc.setRaw(0b00000001);
+    calc.setRaw((calc.getRaw() << 1) & 0xFF);
+    REQUIRE((calc.getRaw() & 0xFF) == 0b00000010);
+}
 // ADDITION
 TEST_CASE("Decimal addition") {
     Calculator calc;
