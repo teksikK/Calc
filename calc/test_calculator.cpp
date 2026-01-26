@@ -25,12 +25,11 @@ TEST_CASE("Base formatting for positive numbers") {
 TEST_CASE("Changing word size masks stored value") {
     Calculator calc;
 
-    // Put a value with bits above 8 set
     calc.setWordSize(WordSize::QWORD);
-    calc.add(0, 0x1FF); // 511 = 0b1_11111111
+    calc.add(0, 0x1FF);
 
-    calc.setWordSize(WordSize::BYTE); // should keep only 0xFF
-    REQUIRE(calc.getValue() == -1);   // 0xFF as signed int8 = -1
+    calc.setWordSize(WordSize::BYTE);
+    REQUIRE(calc.getValue() == -1);
 
     calc.setBase(NumberBase::HEX);
     REQUIRE(calc.display() == "FF");
@@ -40,14 +39,10 @@ TEST_CASE("NOT respects word size") {
     Calculator calc;
     calc.setWordSize(WordSize::BYTE);
     calc.setBase(NumberBase::BIN);
-
     calc.setRaw(0b11001100);
     REQUIRE(calc.display() == "11001100");
-
-    // NOT => 00110011
     calc.setRaw((~calc.getRaw()) & 0xFF);
-    REQUIRE(calc.display() == "110011"); // NOTE: your toBin() trims leading zeros
-    // Better check raw bits:
+    REQUIRE(calc.display() == "110011");
     REQUIRE((calc.getRaw() & 0xFF) == 0b00110011);
 }
 
@@ -75,13 +70,10 @@ static uint64_t rotrN(uint64_t x, int r, int bits) {
 TEST_CASE("Rotate works in BYTE") {
     Calculator calc;
     calc.setWordSize(WordSize::BYTE);
-
-    // 00000001 RoR 1 => 10000000
     calc.setRaw(0x01);
     calc.setRaw(rotrN(calc.getRaw(), 1, 8));
     REQUIRE((calc.getRaw() & 0xFF) == 0x80);
 
-    // 10000000 RoL 1 => 00000001
     calc.setRaw(0x80);
     calc.setRaw(rotlN(calc.getRaw(), 1, 8));
     REQUIRE((calc.getRaw() & 0xFF) == 0x01);
@@ -90,13 +82,9 @@ TEST_CASE("Rotate works in BYTE") {
 TEST_CASE("Logical shifts respect word size") {
     Calculator calc;
     calc.setWordSize(WordSize::BYTE);
-
-    // 0b10000000 >> 1 => 0b01000000 (logical)
     calc.setRaw(0b10000000);
     calc.setRaw((calc.getRaw() >> 1) & 0xFF);
     REQUIRE((calc.getRaw() & 0xFF) == 0b01000000);
-
-    // 0b00000001 << 1 => 0b00000010
     calc.setRaw(0b00000001);
     calc.setRaw((calc.getRaw() << 1) & 0xFF);
     REQUIRE((calc.getRaw() & 0xFF) == 0b00000010);
@@ -192,24 +180,6 @@ TEST_CASE("Binary representation BYTE") {
     REQUIRE(calc.display() == "11111111");
 }
 
-TEST_CASE("Square root basic cases") {
-    Calculator calc;
-
-    REQUIRE((int64_t)std::sqrt(0) == 0);
-    REQUIRE((int64_t)std::sqrt(1) == 1);
-    REQUIRE((int64_t)std::sqrt(4) == 2);
-    REQUIRE((int64_t)std::sqrt(9) == 3);
-}
-
-TEST_CASE("Square root boundary") {
-    Calculator calc;
-
-    int64_t max = std::numeric_limits<int64_t>::max();
-    int64_t r = (int64_t)std::floor(std::sqrt((long double)max));
-
-    REQUIRE(r*r <= max);
-
-}
 
 TEST_CASE("Shift more than word size wraps") {
     Calculator calc;
@@ -217,7 +187,7 @@ TEST_CASE("Shift more than word size wraps") {
 
     uint64_t x = 0b00000001;
 
-    uint64_t y = (x << 9) & 0xFF; // 9 > 8
+    uint64_t y = (x << 9) & 0xFF;
 
     REQUIRE(y == 0);
 }
@@ -260,8 +230,8 @@ TEST_CASE("Multiple overflow operations") {
     Calculator calc;
     calc.setWordSize(WordSize::BYTE);
 
-    calc.add(127,1);   // -128
-    calc.add(-128,1);  // -127
+    calc.add(127,1);
+    calc.add(-128,1);
 
     REQUIRE(calc.getValue() == -127);
 }
