@@ -8,9 +8,14 @@ Calculator::Calculator()
 
 // helpers
 uint64_t Calculator::mask() const {
-    int bits = static_cast<int>(wordSize);
-    if (bits == 64) return ~0ULL;
-    return (1ULL << bits) - 1;
+    int bits = (int)wordSize;
+
+    if (bits == 8)  return 0xFF;
+    if (bits == 16) return 0xFFFF;
+    if (bits == 32) return 0xFFFFFFFF;
+    if (bits == 64) return 0xFFFFFFFFFFFFFFFF;
+
+    return 0;
 }
 
 int64_t Calculator::signedValue() const {

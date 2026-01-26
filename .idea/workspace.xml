@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="BackendCodeEditorMiscSettings">
+    <option name="/Default/RiderDebugger/RiderRestoreDecompile/RestoreDecompileSetting/@EntryValue" value="false" type="bool" />
+    <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
     <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
   </component>
-  <component name="CMakePresetLoader"><![CDATA[{
-  "useNewFormat": true
-}]]></component>
+  <component name="CMakePresetLoader">{
+  &quot;useNewFormat&quot;: true
+}</component>
   <component name="CMakeProjectFlavorService">
     <option name="flavorId" value="CMakePlainProjectFlavor" />
   </component>
@@ -23,159 +25,15 @@
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
     <configurations>
-      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" GENERATION_OPTIONS="-G Ninja -DCMAKE_BUILD_TYPE=Debug -DCMAKE_PREFIX_PATH=/opt/homebrew/opt/qtbase" />
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DQt6_DIR=&quot;C:/Qt/6.10.1/mingw_64/lib/cmake/Qt6&quot;" />
     </configurations>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cc3b7f56-b01d-4228-bfb4-74ca4cf61c52" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/MainWindow.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/calc/MainWindow.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/MainWindow.h" beforeDir="false" afterPath="$PROJECT_DIR$/calc/MainWindow.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/calc/calculator.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/calc/calculator.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/calculator.h" beforeDir="false" afterPath="$PROJECT_DIR$/calc/calculator.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/.cmake/api/v1/query/cache-v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/.cmake/api/v1/query/cmakeFiles-v1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/.cmake/api/v1/query/codemodel-v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/.cmake/api/v1/query/toolchains-v1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/.cmake/api/v1/reply/cache-v2-fdba1ef6761b33c46d70.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-6fcfb3bbeb0deb439cf8.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-8a006d6e8b2b982e36e5.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/.cmake/api/v1/reply/directory-.-Debug-d0094a50bb2071803777.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/.cmake/api/v1/reply/index-2026-01-22T19-37-34-0105.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/.cmake/api/v1/reply/target-calc_gui-Debug-fe903e89b24e15b84652.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/.cmake/api/v1/reply/target-calc_gui_autogen-Debug-9bda4d64fabf0f57863c.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/.cmake/api/v1/reply/target-calc_gui_autogen_timestamp_deps-Debug-5a93a85b79f918a0ddef.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/.cmake/api/v1/reply/target-calc_tests-Debug-49fecdc982a806c29129.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/.cmake/api/v1/reply/target-calc_tests_autogen-Debug-abd93d458948077b3081.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/.cmake/api/v1/reply/target-calc_tests_autogen_timestamp_deps-Debug-fb570c1581f87b7f2ed7.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/.cmake/api/v1/reply/toolchains-v1-e14a5cb7c94472838b2e.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/.ninja_deps" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/.ninja_log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/.qt/QtDeploySupport.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/.qt/QtDeployTargets.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeCache.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/4.1.2/CMakeCCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/4.1.2/CMakeCXXCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/4.1.2/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/4.1.2/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/4.1.2/CMakeRCCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/4.1.2/CMakeSystem.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/4.1.2/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/4.1.2/CompilerIdC/a.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/4.1.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/4.1.2/CompilerIdCXX/a.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/CMakeRuleHashes.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/InstallScripts.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc.dir/DependInfo.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc.dir/build.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc.dir/calculator.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc.dir/calculator.cpp.obj.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc.dir/catch_amalgamated.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc.dir/catch_amalgamated.cpp.obj.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc.dir/cmake_clean.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc.dir/compiler_depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc.dir/compiler_depend.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc.dir/depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc.dir/flags.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc.dir/link.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc.dir/linkLibs.rsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc.dir/objects.a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc.dir/objects1.rsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc.dir/progress.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc.dir/test_calculator.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc.dir/test_calculator.cpp.obj.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_gui.dir/DependInfo.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_gui.dir/MainWindow.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_gui.dir/MainWindow.cpp.obj.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_gui.dir/build.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_gui.dir/calc_gui_autogen/mocs_compilation.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_gui.dir/calc_gui_autogen/mocs_compilation.cpp.obj.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_gui.dir/calculator.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_gui.dir/calculator.cpp.obj.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_gui.dir/cmake_clean.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_gui.dir/compiler_depend.internal" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_gui.dir/compiler_depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_gui.dir/compiler_depend.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_gui.dir/depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_gui.dir/flags.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_gui.dir/includes_CXX.rsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_gui.dir/link.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_gui.dir/linkLibs.rsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_gui.dir/main.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_gui.dir/main.cpp.obj.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_gui.dir/objects.a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_gui.dir/objects1.rsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_gui.dir/progress.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_gui_autogen.dir/AutogenInfo.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_gui_autogen.dir/AutogenUsed.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_gui_autogen.dir/DependInfo.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_gui_autogen.dir/ParseCache.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_gui_autogen.dir/build.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_gui_autogen.dir/cmake_clean.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_gui_autogen.dir/compiler_depend.internal" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_gui_autogen.dir/compiler_depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_gui_autogen.dir/compiler_depend.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_gui_autogen.dir/progress.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_gui_autogen_timestamp_deps.dir/DependInfo.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_gui_autogen_timestamp_deps.dir/build.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_gui_autogen_timestamp_deps.dir/cmake_clean.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_gui_autogen_timestamp_deps.dir/compiler_depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_gui_autogen_timestamp_deps.dir/compiler_depend.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_gui_autogen_timestamp_deps.dir/progress.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_tests.dir/DependInfo.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_tests.dir/build.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_tests.dir/cmake_clean.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_tests.dir/compiler_depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_tests.dir/compiler_depend.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_tests.dir/depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_tests.dir/flags.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_tests.dir/includes_CXX.rsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_tests.dir/link.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_tests.dir/linkLibs.rsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_tests.dir/objects1.rsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_tests.dir/progress.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_tests_autogen.dir/AutogenInfo.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_tests_autogen.dir/DependInfo.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_tests_autogen.dir/build.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_tests_autogen.dir/cmake_clean.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_tests_autogen.dir/compiler_depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_tests_autogen.dir/compiler_depend.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_tests_autogen.dir/progress.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_tests_autogen_timestamp_deps.dir/DependInfo.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_tests_autogen_timestamp_deps.dir/build.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_tests_autogen_timestamp_deps.dir/cmake_clean.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_tests_autogen_timestamp_deps.dir/compiler_depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_tests_autogen_timestamp_deps.dir/compiler_depend.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/calc_tests_autogen_timestamp_deps.dir/progress.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/cmake.check_cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/build.ninja" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/calc.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/calc_gui.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/calc_gui_autogen/EWIEGA46WW/moc_MainWindow.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/calc_gui_autogen/EWIEGA46WW/moc_MainWindow.cpp.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/calc_gui_autogen/deps" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/calc_gui_autogen/moc_predefs.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/calc_gui_autogen/mocs_compilation.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/calc_gui_autogen/timestamp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc/cmake-build-debug/cmake_install.cmake" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/calc/test_calculator.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/calc/test_calculator.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/calc/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/calc/Calc.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/calc/CalcTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,10 +53,10 @@
     <option name="minorVersion" value="2.3" />
     <option name="productBranch" value="Classic" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="38kcVnjwMjdOruym0nOaYieop6R" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -207,6 +65,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "CMake Application.calc_gui.executor": "Run",
+    "Catch.All in calc_tests.executor": "Run",
     "Catch.Decimal addition.executor": "Run",
     "Catch.calc_tests.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
@@ -219,22 +78,24 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "master",
+    "last_opened_file_path": "D:/zut/semestr_piaty/wo/Calc/CMakeLists.txt",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "CMakeSettings",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Catch.calc_tests">
-    <configuration name="Decimal addition" type="CMakeCatchTestRunConfigurationType" factoryName="Catch Test" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="calc" TARGET_NAME="calc_tests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="calc" RUN_TARGET_NAME="calc_tests" TEST_CLASS="non-tagged" TEST_METHOD="Decimal addition" TEST_MODE="SUITE_TEST">
+  <component name="RunManager" selected="Catch.All in calc_tests">
+    <configuration name="All in calc_tests" type="CMakeCatchTestRunConfigurationType" factoryName="Catch Test" nameIsGenerated="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="calc" TARGET_NAME="calc_tests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="calc" RUN_TARGET_NAME="calc_tests" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
         <option name="BeforeTestRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="calc_tests" type="CMakeCatchTestRunConfigurationType" factoryName="Catch Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="calc" TARGET_NAME="calc_tests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="calc" RUN_TARGET_NAME="calc_tests" TEST_MODE="SUITE_TEST">
+    <configuration name="Decimal addition" type="CMakeCatchTestRunConfigurationType" factoryName="Catch Test" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="calc" TARGET_NAME="calc_tests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="calc" RUN_TARGET_NAME="calc_tests" TEST_CLASS="non-tagged" TEST_METHOD="Decimal addition" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
         <option name="BeforeTestRunTask" enabled="true" />
@@ -246,12 +107,15 @@
       </method>
     </configuration>
     <configuration name="calc_gui" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="calc" TARGET_NAME="calc_gui" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="calc" RUN_TARGET_NAME="calc_gui">
+      <envs>
+        <env name="PATH" value="C:\Qt\6.10.1\mingw_64\bin;%PATH%" />
+      </envs>
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Catch.calc_tests" />
+      <item itemvalue="Catch.All in calc_tests" />
       <item itemvalue="Catch.Decimal addition" />
       <item itemvalue="CMake Application.calc_gui" />
     </list>
@@ -261,6 +125,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="cc3b7f56-b01d-4228-bfb4-74ca4cf61c52" name="Changes" comment="" />
@@ -269,6 +134,10 @@
       <option name="presentableId" value="Default" />
       <updated>1769347035832</updated>
       <workItem from="1769347037595" duration="7222000" />
+      <workItem from="1769375917261" duration="1456000" />
+      <workItem from="1769377525385" duration="795000" />
+      <workItem from="1769378348342" duration="829000" />
+      <workItem from="1769379194736" duration="4909000" />
     </task>
     <servers />
   </component>

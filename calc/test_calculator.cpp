@@ -192,3 +192,76 @@ TEST_CASE("Binary representation BYTE") {
     REQUIRE(calc.display() == "11111111");
 }
 
+TEST_CASE("Square root basic cases") {
+    Calculator calc;
+
+    REQUIRE((int64_t)std::sqrt(0) == 0);
+    REQUIRE((int64_t)std::sqrt(1) == 1);
+    REQUIRE((int64_t)std::sqrt(4) == 2);
+    REQUIRE((int64_t)std::sqrt(9) == 3);
+}
+
+TEST_CASE("Square root boundary") {
+    Calculator calc;
+
+    int64_t max = std::numeric_limits<int64_t>::max();
+    int64_t r = (int64_t)std::floor(std::sqrt((long double)max));
+
+    REQUIRE(r*r <= max);
+
+}
+
+TEST_CASE("Shift more than word size wraps") {
+    Calculator calc;
+    calc.setWordSize(WordSize::BYTE);
+
+    uint64_t x = 0b00000001;
+
+    uint64_t y = (x << 9) & 0xFF; // 9 > 8
+
+    REQUIRE(y == 0);
+}
+
+TEST_CASE("Changing base does not change value") {
+    Calculator calc;
+
+    calc.add(0, 255);
+
+    calc.setBase(NumberBase::HEX);
+    REQUIRE(calc.display() == "FF");
+
+    calc.setBase(NumberBase::DEC);
+    REQUIRE(calc.display() == "255");
+
+    calc.setBase(NumberBase::BIN);
+    REQUIRE(calc.display() == "11111111");
+}
+
+TEST_CASE("Zero formatting") {
+    Calculator calc;
+
+    calc.add(0,0);
+
+    calc.setBase(NumberBase::HEX);
+    REQUIRE(calc.display() == "0");
+
+    calc.setBase(NumberBase::BIN);
+    REQUIRE(calc.display() == "0");
+}
+
+TEST_CASE("Minimum negative values") {
+    Calculator calc;
+    calc.setWordSize(WordSize::QWORD);
+
+    REQUIRE(calc.add(INT64_MIN,0) == INT64_MIN);
+}
+
+TEST_CASE("Multiple overflow operations") {
+    Calculator calc;
+    calc.setWordSize(WordSize::BYTE);
+
+    calc.add(127,1);   // -128
+    calc.add(-128,1);  // -127
+
+    REQUIRE(calc.getValue() == -127);
+}
