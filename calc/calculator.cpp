@@ -1,5 +1,6 @@
 #include "calculator.h"
 #include <stdexcept>
+#include <cmath>
 
 // constructor
 Calculator::Calculator()
@@ -79,6 +80,121 @@ int64_t Calculator::getValue() const {
     return signedValue();
 }
 
+int64_t Calculator::bitAnd(int64_t a, int64_t b)
+{
+    raw = (a & b) & mask();
+    return signedValue();
+}
+
+int64_t Calculator::shl(int64_t a, int n)
+{
+    int bits = (int)wordSize;
+    n %= bits;
+
+    uint64_t v = (uint64_t)a & mask();
+    raw = (v << n) & mask();
+
+    return signedValue();
+}
+
+int64_t Calculator::bitNot(int64_t a)
+{
+    raw = (~a) & mask();
+    return signedValue();
+}
+
+// ================= BIT OPERATIONS =================
+
+int64_t Calculator::bitOr(int64_t a, int64_t b)
+{
+    raw = (a | b) & mask();
+    return signedValue();
+}
+
+int64_t Calculator::bitXor(int64_t a, int64_t b)
+{
+    raw = (a ^ b) & mask();
+    return signedValue();
+}
+
+// ================= SHIFT =================
+
+int64_t Calculator::shr(int64_t a, int n)
+{
+    int bits = (int)wordSize;
+    n %= bits;
+
+    uint64_t v = (uint64_t)a & mask();
+    raw = (v >> n) & mask();
+
+    return signedValue();
+}
+
+// ================= ROTATE =================
+
+int64_t Calculator::rol(int64_t a, int n)
+{
+    int bits = (int)wordSize;
+    n %= bits;
+
+    uint64_t v = (uint64_t)a & mask();
+
+    if (bits == 64)
+        raw = (v << n) | (v >> (64 - n));
+    else
+        raw = ((v << n) | (v >> (bits - n))) & mask();
+
+    return signedValue();
+}
+
+int64_t Calculator::ror(int64_t a, int n)
+{
+    int bits = (int)wordSize;
+    n %= bits;
+
+    uint64_t v = (uint64_t)a & mask();
+
+    if (bits == 64)
+        raw = (v >> n) | (v << (64 - n));
+    else
+        raw = ((v >> n) | (v << (bits - n))) & mask();
+
+    return signedValue();
+}
+
+// ================= MATH =================
+
+int64_t Calculator::mod(int64_t a, int64_t b)
+{
+    if (b == 0)
+        throw std::invalid_argument("DIV/0");
+
+    raw = (a % b) & mask();
+    return signedValue();
+}
+
+int64_t Calculator::isqrt(int64_t a)
+{
+    if (a < 0)
+        throw std::invalid_argument("N/A");
+
+    int64_t r = static_cast<int64_t>(std::sqrt((long double)a));
+
+    raw = r & mask();
+    return signedValue();
+}
+
+int64_t Calculator::reciprocal(int64_t a)
+{
+    if (a == 0)
+        throw std::invalid_argument("DIV/0");
+
+    if (1 % a != 0)
+        throw std::invalid_argument("N/A");
+
+    raw = (1 / a) & mask();
+    return signedValue();
+}
 
 // display
 std::string Calculator::display() const {

@@ -35,6 +35,20 @@ public:
     void setValue(int64_t v);
     uint64_t getRaw() const;
 
+    int64_t bitAnd(int64_t a, int64_t b);
+    int64_t bitOr(int64_t a, int64_t b);
+    int64_t bitXor(int64_t a, int64_t b);
+    int64_t bitNot(int64_t a);
+
+    int64_t shl(int64_t a, int n);
+    int64_t shr(int64_t a, int n);
+
+    int64_t rol(int64_t a, int n);
+    int64_t ror(int64_t a, int n);
+
+    int64_t mod(int64_t a, int64_t b);
+    int64_t isqrt(int64_t a);
+    int64_t reciprocal(int64_t a);
 private:
     uint64_t raw;
     NumberBase base;
@@ -47,4 +61,5 @@ private:
     std::string toBin() const;
     std::string toOct() const;
     std::string toHex() const;
+
 };

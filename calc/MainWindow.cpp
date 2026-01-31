@@ -195,46 +195,54 @@ void MainWindow::applyOperation(int64_t value)
 
     try {
         switch (pendingOp) {
-            case Op::Add: calc.add(cur, value); break;
-            case Op::Sub: calc.subtract(cur, value); break;
-            case Op::Mul: calc.multiply(cur, value); break;
-            case Op::Div: calc.divide(cur, value); break;
+
+            case Op::Add:
+                calc.add(cur, value);
+                break;
+
+            case Op::Sub:
+                calc.subtract(cur, value);
+                break;
+
+            case Op::Mul:
+                calc.multiply(cur, value);
+                break;
+
+            case Op::Div:
+                calc.divide(cur, value);
+                break;
+
             case Op::Mod:
-                if (value == 0) { setError("DIV/0"); return; }
-                calc.add(cur % value, 0);
+                calc.mod(cur, value);
                 break;
-            case Op::And: calc.add(cur & value, 0); break;
-            case Op::Or:  calc.add(cur | value, 0); break;
-            case Op::Xor: calc.add(cur ^ value, 0); break;
-            case Op::Lsh: {
-                int bits = wordBits();
-                uint64_t m = wordMask(bits);
 
-                if (value < 0) { setError("N/A"); return; }
-                uint64_t sh = static_cast<uint64_t>(value) % static_cast<uint64_t>(bits);
-
-                uint64_t x = static_cast<uint64_t>(cur) & m;
-                uint64_t y = (x << sh) & m;
-
-                calc.add(0, static_cast<int64_t>(y));
+            case Op::And:
+                calc.bitAnd(cur, value);
                 break;
-            }
-            case Op::Rsh: {
-                int bits = wordBits();
-                uint64_t m = wordMask(bits);
 
-                if (value < 0) { setError("N/A"); return; }
-                uint64_t sh = static_cast<uint64_t>(value) % static_cast<uint64_t>(bits);
-
-                uint64_t x = static_cast<uint64_t>(cur) & m;
-                uint64_t y = (x >> sh) & m;
-
-                calc.add(0, static_cast<int64_t>(y));
+            case Op::Or:
+                calc.bitOr(cur, value);
                 break;
-            }
-            case Op::None: calc.add(0, value); break;
+
+            case Op::Xor:
+                calc.bitXor(cur, value);
+                break;
+
+            case Op::Lsh:
+                calc.shl(cur, value);
+                break;
+
+            case Op::Rsh:
+                calc.shr(cur, value);
+                break;
+
+            case Op::None:
+                calc.add(0, value);
+                break;
         }
-    } catch (const std::exception&) {
+
+    }
+    catch (...) {
         setError("Error");
         return;
     }
@@ -242,6 +250,7 @@ void MainWindow::applyOperation(int64_t value)
     display->setText(QString::fromStdString(calc.display()));
     updateBitView();
 }
+
 
 void MainWindow::updateBitView()
 {
@@ -278,67 +287,95 @@ void MainWindow::updateDigitButtons()
     }
 }
 
-static uint64_t rotlN(uint64_t x, int r, int bits) {
-    r %= bits;
-    uint64_t m = wordMask(bits);
-    x &= m;
-    if (bits == 64) return (x << r) | (x >> (64 - r));
-    return ((x << r) | (x >> (bits - r))) & m;
-}
-
-static uint64_t rotrN(uint64_t x, int r, int bits) {
-    r %= bits;
-    uint64_t m = wordMask(bits);
-    x &= m;
-    if (bits == 64) return (x >> r) | (x << (64 - r));
-    return ((x >> r) | (x << (bits - r))) & m;
-}
 
 void MainWindow::onButtonClicked()
 {
     auto* b = qobject_cast<QPushButton*>(sender());
     if (!b) return;
+
     QString t = b->text();
 
     // only allow clear on error
     if (error) {
-        if (t == "CE") { error = false; display->setText("0"); waitingForValue = true; updateBitView(); updateDigitButtons(); return; }
-        if (t == "Clear") { error = false; calc = Calculator(); pendingOp = Op::None; display->setText("0"); waitingForValue = true; updateBitView(); updateDigitButtons(); return; }
+
+        if (t == "CE") {
+            error = false;
+            display->setText("0");
+            waitingForValue = true;
+            updateBitView();
+            updateDigitButtons();
+            return;
+        }
+
+        if (t == "Clear") {
+            error = false;
+            calc = Calculator();
+            pendingOp = Op::None;
+            display->setText("0");
+            waitingForValue = true;
+            updateBitView();
+            updateDigitButtons();
+            return;
+        }
+
         return;
     }
 
+    // digits
     if (digitButtons.contains(t)) {
+
         display->setText(waitingForValue ? t : display->text() + t);
         waitingForValue = false;
         return;
     }
+
     // backspace
     if (t == "←") {
+
         if (waitingForValue) return;
+
         QString s = display->text();
+
         if (s.size() <= 1) {
             display->setText("0");
             waitingForValue = true;
-        } else {
-            s.chop(1);
-            // if user deletes "-" alone
-            if (s == "-") { display->setText("0"); waitingForValue = true; }
-            else display->setText(s);
         }
+        else {
+            s.chop(1);
+
+            if (s == "-") {
+                display->setText("0");
+                waitingForValue = true;
+            }
+            else {
+                display->setText(s);
+            }
+        }
+
         updateBitView();
         return;
     }
+
     // memory
-    if (t == "MC") { memory = 0; hasMemory = false; return; }
+    if (t == "MC") {
+        memory = 0;
+        hasMemory = false;
+        return;
+    }
 
     if (t == "MR") {
+
         if (!hasMemory) return;
-        calc.add(0, memory); // set current value to memory (temporary; later setValue)
-        display->setText(QString::fromStdString(calc.display()));
-        waitingForValue = true;
+
+        // behave like typing a number
+        display->setText(QString::number(memory));
+
+        waitingForValue = false;
+
         updateBitView();
         return;
     }
+
 
     if (t == "MS") {
         memory = parseDisplay();
@@ -358,85 +395,88 @@ void MainWindow::onButtonClicked()
         return;
     }
 
+    // change sign
     if (t == "±") {
-        int64_t v = parseDisplay();
-        v = -v;
-        calc.add(0, v);
+
+        calc.setValue(-parseDisplay());
+
         display->setText(QString::fromStdString(calc.display()));
         waitingForValue = true;
         updateBitView();
         return;
     }
-    // logical operators
+
+    // NOT
     if (t == "Not") {
-        int bits = wordBits();
-        uint64_t m = wordMask(bits);
 
-        uint64_t x = static_cast<uint64_t>(parseDisplay()) & m;
-        uint64_t y = (~x) & m;
+        calc.bitNot(parseDisplay());
 
-        calc.setRaw(y);
         display->setText(QString::fromStdString(calc.display()));
         waitingForValue = true;
         updateBitView();
         return;
     }
+
+    // ROL
     if (t == "RoL") {
-        int bits = wordBits();
-        uint64_t m = wordMask(bits);
 
-        uint64_t x = static_cast<uint64_t>(parseDisplay()) & m;
-        uint64_t y = rotlN(x, 1, bits);
-        calc.setRaw(y);
+        calc.rol(parseDisplay(), 1);
+
         display->setText(QString::fromStdString(calc.display()));
         waitingForValue = true;
         updateBitView();
         return;
     }
 
+    // ROR
     if (t == "RoR") {
-        int bits = wordBits();
-        uint64_t m = wordMask(bits);
 
-        uint64_t x = static_cast<uint64_t>(parseDisplay()) & m;
-        uint64_t y = rotrN(x, 1, bits);
+        calc.ror(parseDisplay(), 1);
 
-        calc.setRaw(y);
         display->setText(QString::fromStdString(calc.display()));
         waitingForValue = true;
         updateBitView();
         return;
     }
-    // square root
+
+
+    // SQRT
     if (t == "√") {
-        int64_t v = parseDisplay();
-        if (v < 0) { setError("N/A"); return; }
 
-        long double dv = static_cast<long double>(v);
-        int64_t r = static_cast<int64_t>(std::floor(std::sqrt(dv)));
+        try {
+            calc.isqrt(parseDisplay());
+        }
+        catch (...) {
+            setError("N/A");
+            return;
+        }
 
-        calc.add(0, r);
         display->setText(QString::fromStdString(calc.display()));
         waitingForValue = true;
         updateBitView();
         return;
     }
-    // switch sign
+
+    // RECIPROCAL 1/x
     if (t == "1/x") {
-        int64_t v = parseDisplay();
-        if (v == 0) { setError("DIV/0"); return; }
 
-        // strict integer reciprocal: only if 1 is divisible by v
-        if (1 % v != 0) { setError("N/A"); return; }
+        try {
+            calc.reciprocal(parseDisplay());
+        }
+        catch (...) {
+            setError("N/A");
+            return;
+        }
 
-        calc.add(0, 1 / v);
         display->setText(QString::fromStdString(calc.display()));
         waitingForValue = true;
         updateBitView();
         return;
     }
+
     // clear display
     if (t == "CE") {
+
         error = false;
         display->setText("0");
         waitingForValue = true;
@@ -444,8 +484,10 @@ void MainWindow::onButtonClicked()
         updateDigitButtons();
         return;
     }
-    // clear state
-    if (t == "Clear")  {
+
+    // clear all
+    if (t == "Clear") {
+
         calc = Calculator();
         pendingOp = Op::None;
         error = false;
@@ -455,32 +497,39 @@ void MainWindow::onButtonClicked()
         updateDigitButtons();
         return;
     }
-    // get solution
+
+    // equal
     if (t == "=") {
-        if (!waitingForValue) applyOperation(parseDisplay());
+
+        if (!waitingForValue)
+            applyOperation(parseDisplay());
+
         pendingOp = Op::None;
         waitingForValue = true;
         return;
     }
 
-    auto op = [&](Op o){
-        if (!waitingForValue) applyOperation(parseDisplay());
+    // operators
+    auto op = [&](Op o) {
+
+        if (!waitingForValue)
+            applyOperation(parseDisplay());
+
         pendingOp = o;
         waitingForValue = true;
     };
 
-    if (t == "+") op(Op::Add);
-    if (t == "-") op(Op::Sub);
-    if (t == "*") op(Op::Mul);
-    if (t == "/") op(Op::Div);
+    if (t == "+")   op(Op::Add);
+    if (t == "-")   op(Op::Sub);
+    if (t == "*")   op(Op::Mul);
+    if (t == "/")   op(Op::Div);
     if (t == "Mod") op(Op::Mod);
     if (t == "And") op(Op::And);
     if (t == "Or")  op(Op::Or);
     if (t == "Xor") op(Op::Xor);
     if (t == "Lsh") op(Op::Lsh);
     if (t == "Rsh") op(Op::Rsh);
-    if (t == "%") op(Op::Mod);
-    return;
+    if (t == "%")   op(Op::Mod);
 }
 
 void MainWindow::onBaseChanged()
