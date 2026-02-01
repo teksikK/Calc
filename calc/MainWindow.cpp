@@ -184,11 +184,6 @@ int64_t MainWindow::parseDisplay() const
     return static_cast<int64_t>(v);
 }
 
-static uint64_t wordMask(int bits) {
-    if (bits == 64) return ~0ULL;
-    return (1ULL << bits) - 1ULL;
-}
-
 void MainWindow::applyOperation(int64_t value)
 {
     int64_t cur = calc.getValue();

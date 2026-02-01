@@ -71,9 +71,11 @@ void Calculator::setBase(NumberBase b) {
     base = b;
 }
 
-void Calculator::setWordSize(WordSize w) {
+void Calculator::setWordSize(WordSize w)
+{
+    int64_t val = signedValue();
     wordSize = w;
-    raw &= mask();
+    setValue(val);
 }
 
 int64_t Calculator::getValue() const {
@@ -89,13 +91,18 @@ int64_t Calculator::bitAnd(int64_t a, int64_t b)
 int64_t Calculator::shl(int64_t a, int n)
 {
     int bits = (int)wordSize;
-    n %= bits;
+
+    if (n >= bits) {
+        raw = 0;
+        return 0;
+    }
 
     uint64_t v = (uint64_t)a & mask();
     raw = (v << n) & mask();
 
     return signedValue();
 }
+
 
 int64_t Calculator::bitNot(int64_t a)
 {
@@ -122,13 +129,18 @@ int64_t Calculator::bitXor(int64_t a, int64_t b)
 int64_t Calculator::shr(int64_t a, int n)
 {
     int bits = (int)wordSize;
-    n %= bits;
+
+    if (n >= bits) {
+        raw = 0;
+        return 0;
+    }
 
     uint64_t v = (uint64_t)a & mask();
     raw = (v >> n) & mask();
 
     return signedValue();
 }
+
 
 // ================= ROTATE =================
 

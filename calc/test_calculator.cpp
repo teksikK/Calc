@@ -77,6 +77,29 @@ TEST_CASE("Changing word size masks stored value") {
     REQUIRE(calc.display() == "FF");
 }
 
+TEST_CASE("Changing word size masks QWORD to WORD") {
+
+    Calculator calc;
+
+    calc.setWordSize(WordSize::QWORD);
+    calc.add(0, 0x1FFFF);
+
+    calc.setWordSize(WordSize::WORD);
+
+    REQUIRE(calc.getValue() == -1);
+}
+
+TEST_CASE("Changing word size masks QWORD to DWORD") {
+
+    Calculator calc;
+
+    calc.setWordSize(WordSize::QWORD);
+    calc.add(0, 0x1FFFFFFFF);
+
+    calc.setWordSize(WordSize::DWORD);
+
+    REQUIRE(calc.getValue() == -1);
+}
 
 TEST_CASE("BYTE wrap-around behavior") {
 
@@ -87,6 +110,17 @@ TEST_CASE("BYTE wrap-around behavior") {
     REQUIRE(calc.subtract(-128, 1) == 127);
 }
 
+TEST_CASE("Increasing word size preserves value") {
+
+    Calculator calc;
+
+    calc.setWordSize(WordSize::BYTE);
+    calc.add(0, -1); // 0xFF
+
+    calc.setWordSize(WordSize::QWORD);
+
+    REQUIRE(calc.getValue() == -1);
+}
 
 TEST_CASE("Minimum negative values") {
 
@@ -146,7 +180,13 @@ TEST_CASE("Decimal multiplication") {
         == std::numeric_limits<int64_t>::max());
 }
 
+TEST_CASE("Multiplication overflow wrap-around") {
 
+    Calculator calc;
+    calc.setWordSize(WordSize::BYTE);
+
+    REQUIRE(calc.multiply(64, 2) == -128);
+}
 // DIV
 TEST_CASE("Decimal division") {
 
@@ -204,8 +244,17 @@ TEST_CASE("Bit AND") {
     Calculator calc;
     calc.setWordSize(WordSize::BYTE);
 
-    REQUIRE(calc.bitAnd(0b1100, 0b1010) == 0b1000);
+    REQUIRE(calc.bitAnd(0x0C, 0x0A) == 0x08); // 1100 & 1010
+
+    REQUIRE(calc.bitAnd(0xFF, 0x55) == 0x55);
+    REQUIRE(calc.bitAnd(0xFF, 0x00) == 0x00);
+
+    REQUIRE(calc.bitAnd(0x00, 0xAA) == 0x00);
+
+    REQUIRE(calc.bitAnd(-1, 0x0F) == 0x0F);
+    REQUIRE(calc.bitAnd(-128, 0xFF) == -128);
 }
+
 
 
 TEST_CASE("Bit OR") {
@@ -213,7 +262,10 @@ TEST_CASE("Bit OR") {
     Calculator calc;
     calc.setWordSize(WordSize::BYTE);
 
-    REQUIRE(calc.bitOr(0b1100, 0b1010) == 0b1110);
+    REQUIRE(calc.bitOr(0x0C, 0x0A) == 0x0E);
+    REQUIRE(calc.bitOr(0x00, 0x55) == 0x55);
+    REQUIRE(calc.bitOr(0xAA, 0x55) == -1);
+    REQUIRE(calc.bitOr(-128, 0x01) == -127);
 }
 
 
@@ -222,8 +274,15 @@ TEST_CASE("Bit XOR") {
     Calculator calc;
     calc.setWordSize(WordSize::BYTE);
 
-    REQUIRE(calc.bitXor(0b1100, 0b1010) == 0b0110);
+    REQUIRE(calc.bitXor(0x0C, 0x0A) == 0x06);
+    REQUIRE(calc.bitXor(0x55, 0x55) == 0x00);
+    REQUIRE(calc.bitXor(0x00, 0xAA) == -86);
+    REQUIRE(calc.bitXor(0xFF, 0x0F) == -16);
+    REQUIRE(calc.bitXor(-1, 0x0F) == -16);
+
+
 }
+
 
 
 TEST_CASE("Bit NOT respects word size") {
@@ -231,8 +290,14 @@ TEST_CASE("Bit NOT respects word size") {
     Calculator calc;
     calc.setWordSize(WordSize::BYTE);
 
-    REQUIRE(calc.bitNot(0b11110000) == 0b00001111);
+    REQUIRE(calc.bitNot(0xF0) == 0x0F);
+    REQUIRE(calc.bitNot(0x00) == -1);
+    REQUIRE(calc.bitNot(0xFF) == 0x00);
+    REQUIRE(calc.bitNot(0x55) == -86); // 10101010
+    REQUIRE(calc.bitNot(0x80) == 0x7F);
+
 }
+
 
 
 
@@ -243,9 +308,21 @@ TEST_CASE("Shift left") {
     Calculator calc;
     calc.setWordSize(WordSize::BYTE);
 
-    REQUIRE(calc.shl(0b00000001, 1) == 0b00000010);
-    REQUIRE(calc.shl(0b10000000, 1) == 0);
+    REQUIRE(calc.shl(0x01, 1) == 0x02);
+    REQUIRE(calc.shl(0x02, 1) == 0x04);
+    REQUIRE(calc.shl(0x04, 1) == 0x08);
+
+    REQUIRE(calc.shl(0x80, 1) == 0x00);
+    REQUIRE(calc.shl(0xC0, 1) == -128);
+
+    REQUIRE(calc.shl(0x01, 2) == 0x04);
+    REQUIRE(calc.shl(0x01, 7) == -128);
+    REQUIRE(calc.shl(0x01, 8) == 0x00);
+
+    REQUIRE(calc.shl(0x00, 3) == 0x00);
+    REQUIRE(calc.shl(0xFF, 1) == -2);
 }
+
 
 
 TEST_CASE("Shift right") {
@@ -253,9 +330,21 @@ TEST_CASE("Shift right") {
     Calculator calc;
     calc.setWordSize(WordSize::BYTE);
 
-    REQUIRE(calc.shr(0b10000000, 1) == 0b01000000);
-    REQUIRE(calc.shr(0b00000001, 1) == 0);
+    REQUIRE(calc.shr(0x02, 1) == 0x01);
+    REQUIRE(calc.shr(0x04, 1) == 0x02);
+    REQUIRE(calc.shr(0x08, 1) == 0x04);
+
+    REQUIRE(calc.shr(0x01, 1) == 0x00);
+    REQUIRE(calc.shr(0x03, 1) == 0x01);
+
+    REQUIRE(calc.shr(0x80, 1) == 0x40);
+    REQUIRE(calc.shr(0x80, 7) == 0x01);
+    REQUIRE(calc.shr(0x80, 8) == 0x00);
+
+    REQUIRE(calc.shr(0x00, 5) == 0x00);
+    REQUIRE(calc.shr(0xFF, 1) == 0x7F);
 }
+
 
 
 
@@ -267,8 +356,28 @@ TEST_CASE("Rotate left BYTE") {
     calc.setWordSize(WordSize::BYTE);
 
     REQUIRE(calc.rol(0x01, 1) == 0x02);
+    REQUIRE(calc.rol(0x02, 1) == 0x04);
+    REQUIRE(calc.rol(0x04, 1) == 0x08);
+
     REQUIRE(calc.rol(0x80, 1) == 0x01);
+    REQUIRE(calc.rol(0xC0, 1) == -127);
+
+
+    REQUIRE(calc.rol(0x01, 2) == 0x04);
+    REQUIRE(calc.rol(0x01, 3) == 0x08);
+    REQUIRE(calc.rol(0x01, 7) == -128);
+
+
+    REQUIRE(calc.rol(0x55, 8) == 0x55);
+    REQUIRE(calc.rol(0xAA, 16) == -86);
+
+
+    REQUIRE(calc.rol(0x00, 1) == 0x00);
+    REQUIRE(calc.rol(0x00, 5) == 0x00);
+
+    REQUIRE(calc.rol(0xFF, 1) == -1);
 }
+
 
 
 TEST_CASE("Rotate right BYTE") {
@@ -276,9 +385,26 @@ TEST_CASE("Rotate right BYTE") {
     Calculator calc;
     calc.setWordSize(WordSize::BYTE);
 
-    REQUIRE(calc.ror(0x01, 1) == -128);
     REQUIRE(calc.ror(0x02, 1) == 0x01);
+    REQUIRE(calc.ror(0x04, 1) == 0x02);
+    REQUIRE(calc.ror(0x08, 1) == 0x04);
+
+    REQUIRE(calc.ror(0x01, 1) == -128);
+    REQUIRE(calc.ror(0x03, 1) == -127);
+
+    REQUIRE(calc.ror(0x08, 3) == 0x01);
+    REQUIRE(calc.ror(0x80, 7) == 0x01);
+
+    REQUIRE(calc.ror(0x5A, 8) == 0x5A);
+    REQUIRE(calc.ror(0xF0, 16) == -16);
+
+
+    REQUIRE(calc.ror(0x00, 1) == 0x00);
+    REQUIRE(calc.ror(0x00, 6) == 0x00);
+
+    REQUIRE(calc.ror(0xFF, 1) == -1);
 }
+
 
 
 // ================= MOD =================
@@ -287,11 +413,36 @@ TEST_CASE("Modulo") {
 
     Calculator calc;
 
+
     REQUIRE(calc.mod(10, 3) == 1);
+    REQUIRE(calc.mod(9, 3) == 0);
+    REQUIRE(calc.mod(5, 2) == 1);
+
+    REQUIRE(calc.mod(0, 1) == 0);
+    REQUIRE(calc.mod(0, 5) == 0);
+    REQUIRE(calc.mod(1, 1) == 0);
+
     REQUIRE(calc.mod(-10, 3) == -1);
+    REQUIRE(calc.mod(10, -3) == 1);
+    REQUIRE(calc.mod(-10, -3) == -1);
+
+    REQUIRE(calc.mod(-1, 2) == -1);
+    REQUIRE(calc.mod(-5, 2) == -1);
+
+    REQUIRE(calc.mod(INT64_MAX, 2) == 1);
+    REQUIRE(calc.mod(INT64_MIN, 2) == 0);
+
+    REQUIRE(calc.mod(INT64_MAX, 1) == 0);
+    REQUIRE(calc.mod(INT64_MIN, 1) == 0);
+
+    REQUIRE(calc.mod(5, 100) == 5);
+    REQUIRE(calc.mod(-5, 100) == -5);
 
     REQUIRE_THROWS_AS(calc.mod(5, 0), std::invalid_argument);
+    REQUIRE_THROWS_AS(calc.mod(0, 0), std::invalid_argument);
+    REQUIRE_THROWS_AS(calc.mod(-5, 0), std::invalid_argument);
 }
+
 
 
 
@@ -305,8 +456,15 @@ TEST_CASE("Integer sqrt") {
     REQUIRE(calc.isqrt(15) == 3);
     REQUIRE(calc.isqrt(1) == 1);
     REQUIRE(calc.isqrt(0) == 0);
-
+    REQUIRE(calc.isqrt(8) == 2);
+    REQUIRE(calc.isqrt(10) == 3);
+    REQUIRE(calc.isqrt(26) == 5);
+    REQUIRE(calc.isqrt(99) == 9);
+    int64_t big = 9223372036854775807LL;
+    REQUIRE(calc.isqrt(big) == 3037000499);
     REQUIRE_THROWS_AS(calc.isqrt(-1), std::invalid_argument);
+    REQUIRE_THROWS_AS(calc.isqrt(-100), std::invalid_argument);
+    REQUIRE_THROWS_AS(calc.isqrt(INT64_MIN), std::invalid_argument);
 }
 
 
